@@ -1,0 +1,29 @@
+{
+  "name": "elgruposerver",
+  "version": "1.0.0",
+  "description": "Back-end for El_grupo_de_los_10 app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiasLopezMonteiro/elGrupoServer.git"
+  },
+  "keywords": [
+    "back-end",
+    "server",
+    "game"
+  ],
+  "author": "Matias LM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasLopezMonteiro/elGrupoServer/issues"
+  },
+  "homepage": "https://github.com/MatiasLopezMonteiro/elGrupoServer#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
