@@ -41,7 +41,7 @@ const server = https.createServer({
   });
 
 const wss = new WebSocket.Server({ server });
-
+//funk?
 wss.on('connection', function(ws) {
     
     console.log('new client')
