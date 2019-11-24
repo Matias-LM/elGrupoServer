@@ -5,7 +5,7 @@ var fs = require('fs');
 //const cors = require('cors')
 
 //const app = express()
-//const port = process.env.PORT || 4000
+const port = process.env.PORT || 4000
 
 // list of currently connected clients (users)
 var clients = [ ];
@@ -67,9 +67,9 @@ wss.on('connection', function(ws) {
     
 });
 
-server.listen(8080, function() {
+server.listen(PORT, function() {
 
     console.log((new Date()) + " Server is listening on port "
-    + '8080');
+    + PORT);
 
 });
