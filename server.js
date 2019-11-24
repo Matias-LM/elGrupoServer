@@ -1,10 +1,10 @@
-var WebSocket = require('ws');
-var https = require('https');
-var fs = require('fs');
-//const express = require('express')
-//const cors = require('cors')
+var webSocketServer = require('websocket').server;
+var http = require('http');
+const express = require('express')
+const cors = require('cors')
 
-//const app = express()
+const app = express()
+const port = process.env.PORT || 3000
 const port = process.env.PORT || 4000
 
 // list of currently connected clients (users)
@@ -12,7 +12,7 @@ var clients = [ ];
 var playerId = null;
 var playerCount = 0;
 
-//app.use(cors())
+app.use(cors())
 
 /**
  * Helper function for escaping input strings
@@ -35,18 +35,52 @@ const waitMatch = async function(){
 
 }
 
-const server = https.createServer({
-    cert: fs.readFileSync('./cert.pem'),
-    key: fs.readFileSync('./key.pem')
+const find = async function(){
+
+    var resp = await waitMatch();
+    return resp;
+
+}
+
+app.get('/api', (req, res) => {
+  res.status(200).json({api: 'version 1'})
+
+    var myId = playerCount;
+    playerCount++;
+    playerId = myId;
+    do{
+
+        console.log(playerId);
+
+    }while(playerId == myId);
+    console.log('Si');
+    res.status(200).json({api: myId});
+
+})
+
+app.listen(port, () => console.log('server started on port', port))
+var server = http.createServer(function(request, response) {
+    // Not important for us. We're writing WebSocket server,
+    // not HTTP server
+});
+
+var wsServer = new webSocketServer({
+    // WebSocket server is tied to a HTTP server. WebSocket
+    // request is just an enhanced HTTP request. For more info 
+    // http://tools.ietf.org/html/rfc6455#page-6
+    httpServer: server
   });
 
-const wss = new WebSocket.Server({ server });
-//funk?
-wss.on('connection', function(ws) {
-    
-    console.log('new client');
-    ws.send('something');
-    /*console.log((new Date()) + ' Connection from origin '
+server.listen(port, function() {
+
+    console.log((new Date()) + " Server is listening on port "
+    + port);
+
+});
+
+wsServer.on('request', function(request) {
+
+    console.log((new Date()) + ' Connection from origin '
         + request.origin + '.');
 
     var connection = request.accept(null, request.origin); 
@@ -64,13 +98,6 @@ wss.on('connection', function(ws) {
             + connection.remoteAddress + " disconnected.");      // remove user from the list of connected clients
         clients.splice(index, 1);
 
-    });*/
-    
-});
-
-server.listen(port, function() {
-
-    console.log((new Date()) + " Server is listening on port "
-    + port);
+    });
 
 });
