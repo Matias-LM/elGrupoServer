@@ -44,7 +44,8 @@ const wss = new WebSocket.Server({ server });
 //funk?
 wss.on('connection', function(ws) {
     
-    console.log('new client')
+    console.log('new client');
+    ws.send('something');
     /*console.log((new Date()) + ' Connection from origin '
         + request.origin + '.');
 
