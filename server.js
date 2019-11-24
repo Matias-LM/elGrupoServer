@@ -67,9 +67,9 @@ wss.on('connection', function(ws) {
     
 });
 
-server.listen(PORT, function() {
+server.listen(port, function() {
 
     console.log((new Date()) + " Server is listening on port "
-    + PORT);
+    + port);
 
 });
