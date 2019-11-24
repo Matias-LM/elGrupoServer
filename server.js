@@ -1,18 +1,18 @@
 var WebSocket = require('ws');
 var https = require('https');
 var fs = require('fs');
-const express = require('express')
-const cors = require('cors')
+//const express = require('express')
+//const cors = require('cors')
 
-const app = express()
-const port = process.env.PORT || 4000
+//const app = express()
+//const port = process.env.PORT || 4000
 
 // list of currently connected clients (users)
 var clients = [ ];
 var playerId = null;
 var playerCount = 0;
 
-app.use(cors())
+//app.use(cors())
 
 /**
  * Helper function for escaping input strings
@@ -40,18 +40,12 @@ const server = https.createServer({
     key: fs.readFileSync('./key.pem')
   });
 
-server.listen(port, function() {
-
-    console.log((new Date()) + " Server is listening on port "
-    + port);
-
-});
-
 const wss = new WebSocket.Server({ server });
-
-wss.on('request', function(request) {
+//funk?
+wss.on('connection', function(ws) {
     
-    console.log((new Date()) + ' Connection from origin '
+    console.log('new client')
+    /*console.log((new Date()) + ' Connection from origin '
         + request.origin + '.');
 
     var connection = request.accept(null, request.origin); 
@@ -69,6 +63,13 @@ wss.on('request', function(request) {
             + connection.remoteAddress + " disconnected.");      // remove user from the list of connected clients
         clients.splice(index, 1);
 
-    });
+    });*/
+    
+});
+
+server.listen(8080, function() {
+
+    console.log((new Date()) + " Server is listening on port "
+    + '8080');
 
 });
