@@ -1,5 +1,6 @@
-var webSocketServer = require('websocket').server;
-var http = require('http');
+var WebSocket = require('ws');
+var https = require('https');
+var fs = require('fs');
 const express = require('express')
 const cors = require('cors')
 
@@ -34,38 +35,9 @@ const waitMatch = async function(){
 
 }
 
-const find = async function(){
-
-    var resp = await waitMatch();
-    return resp;
-
-}
-
-app.get('/api', (req, res) => {
-
-    var myId = playerCount;
-    playerCount++;
-    playerId = myId;
-    do{
-
-        console.log(playerId);
-
-    }while(playerId == myId);
-    console.log('Si');
-    res.status(200).json({api: myId});
-
-})
-
-var server = http.createServer(function(request, response) {
-    // Not important for us. We're writing WebSocket server,
-    // not HTTP server
-});
-
-var wsServer = new webSocketServer({
-    // WebSocket server is tied to a HTTP server. WebSocket
-    // request is just an enhanced HTTP request. For more info 
-    // http://tools.ietf.org/html/rfc6455#page-6
-    httpServer: server
+const server = https.createServer({
+    cert: fs.readFileSync('./cert.pem'),
+    key: fs.readFileSync('./key.pem')
   });
 
 server.listen(port, function() {
@@ -75,7 +47,9 @@ server.listen(port, function() {
 
 });
 
-wsServer.on('request', function(request) {
+const wss = new WebSocket.Server({ server });
+
+wss.on('request', function(request) {
     
     console.log((new Date()) + ' Connection from origin '
         + request.origin + '.');
@@ -98,4 +72,3 @@ wsServer.on('request', function(request) {
     });
 
 });
-
