@@ -77,10 +77,10 @@ var server = app.listen(port, function () {
 const wss = new SocketServer({ server });
 
 wss.on('connection', function connection(ws) {
+    
     console.log("connection ...");
-});
-setInterval(() => {
-    wss.clients.forEach((client) => {
+        wss.clients.forEach((client) => {
       client.send(new Date().toTimeString());
     });
-  }, 1000);
+    
+});
