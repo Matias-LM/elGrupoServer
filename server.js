@@ -66,7 +66,7 @@ var app = express();
 //init Express Router
 var router = express.Router();
 var port = process.env.PORT || 3000;
-
+var i = 0;
 app.get('/', function(req, res) {
     res.json({algo: 'lol'});
 });
@@ -78,9 +78,15 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', function connection(ws) {
     
+    i++;
     console.log("connection ...");
-        wss.clients.forEach((client) => {
-      client.send(new Date().toTimeString());
-    });
     
 });
+
+setInterval(() => {
+    
+    wss.clients.forEach((client) => {
+      client.send({clients: i});
+    });
+    
+  }, 1000);
