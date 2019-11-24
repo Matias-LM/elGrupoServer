@@ -1,4 +1,4 @@
-var WebSocket = require('ws');
+/*var WebSocket = require('ws');
 var https = require('https');
 var fs = require('fs');
 //const express = require('express')
@@ -12,7 +12,7 @@ var playerCount = 0;
 //app.use(cors())
 /**
  * Helper function for escaping input strings
- */
+ *//*
 function htmlEntities(str) {
     return String(str)
         .replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -51,9 +51,36 @@ wss.on('connection', function(ws) {
             + connection.remoteAddress + " disconnected.");      // remove user from the list of connected clients
         clients.splice(index, 1);
     });*/
-    
+  /*  
 });
 server.listen(port, function() {
     console.log((new Date()) + " Server is listening on port "
     + port);
 });
+*/
+const SocketServer = require('ws').Server;
+var express = require('express');
+var path = require('path');
+//init Express
+var app = express();
+//init Express Router
+var router = express.Router();
+var port = process.env.PORT || 3000;
+
+app.get('/', function(req, res) {
+    res.json({algo: 'lol'});
+});
+
+var server = app.listen(port, function () {
+    //listening
+})
+const wss = new SocketServer({ server });
+
+wss.on('connection', function connection(ws) {
+    console.log("connection ...");
+});
+setInterval(() => {
+    wss.clients.forEach((client) => {
+      client.send(new Date().toTimeString());
+    });
+  }, 1000);
