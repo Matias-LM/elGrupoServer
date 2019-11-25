@@ -1,62 +1,5 @@
-/*var WebSocket = require('ws');
-var https = require('https');
-var fs = require('fs');
-//const express = require('express')
-//const cors = require('cors')
-//const app = express()
-const port = process.env.PORT || 4000
-// list of currently connected clients (users)
-var clients = [ ];
-var playerId = null;
-var playerCount = 0;
-//app.use(cors())
-/**
- * Helper function for escaping input strings
- *//*
-function htmlEntities(str) {
-    return String(str)
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  }
-const waitMatch = async function(){
-    setTimeout(function(){
-        console.log('yo');
-        return "version 1";
-    }, 2000);
-    console.log('ayo');
-}
-const server = https.createServer({
-    cert: fs.readFileSync('./cert.pem'),
-    key: fs.readFileSync('./key.pem')
-  });
-const wss = new WebSocket.Server({ server });
-//funk?
-wss.on('connection', function(ws) {
-    console.log('new client')
-    console.log('new client');
-    ws.send('something');
-    /*console.log((new Date()) + ' Connection from origin '
-        + request.origin + '.');
-    var connection = request.accept(null, request.origin); 
-    // we need to know client index to remove them on 'close' event
-    var index = clients.push(connection) - 1;
-    for (var i=0; i < clients.length; i++) {
-        console.log('estoy')
-        clients[i].sendUTF(JSON.stringify({lol: 'client connected'}));
-    }
-    //app.listen(port, () => console.log('server started on port', port))
-    connection.on('close', function(connection) {
-        console.log((new Date()) + " Peer "
-            + connection.remoteAddress + " disconnected.");      // remove user from the list of connected clients
-        clients.splice(index, 1);
-    });*/
-  /*  
-});
-server.listen(port, function() {
-    console.log((new Date()) + " Server is listening on port "
-    + port);
-});
-*/
+
+const pjs = require('./battle.json');
 const SocketServer = require('ws').Server;
 var express = require('express');
 var app = express();
@@ -66,6 +9,18 @@ var pairing = [[]];
 var player = 0;
 var matches = 0;
 var ka = "keep alive";
+var aux1 = {
+
+    skills: pjs.skills[0],
+    routes: pjs.routes.aimRight[0]
+
+};
+var aux2 = {
+
+    skills: pjs.skills[1],
+    routes: pjs.routes.aimRight[0]
+
+};
 
 app.get('/', function(req, res) {
     res.json({algo: 'lol'});
@@ -81,29 +36,66 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', function connection(ws, req) {
     
-    var ip = req.connection.remoteAddress;
-    console.log((new Date()) + ' Connection from '
-    + ip + '.');
-    if(pairing[0]._socket !== undefined){
+    console.log("New connection from " + req.connection.remoteAddress);
+    pairing[matches].push(ws);
+    if(player){
 
-        if(pairing[0]._socket.remoteAddress != ip){
+        ws.send(JSON.stringify(
+            
+            {
+                msg: {
+                    match: matches, 
+                    player: 2, 
+                    miPj: aux2, 
+                    suPj: pjs.routes.aimLeft[1]
+                }
+            
+            }
+            
+        ));
+        pairing[matches][0].send(JSON.stringify(
+            
+            {
+                msg: {
+                    match: matches, 
+                    player: 1, 
+                    miPj: aux1, 
+                    suPj: pjs.routes.aimLeft[1]
+                }
+            
+            }
+            
+        ));
+        player--;
+        matches++;
+        pairing.push([])
 
-            pairing[matches].push(ws);
-            matches++;
-            pairing.push([])
-            ws.send("matched");
+    }else player++;
+    ws.on('message', function(message){
 
-        } 
+        try{
+         
+            var msg = JSON.parse(message).msg;
+            console.log(msg.jugador);
+            pairing[msg.match][msg.jugador].send(JSON.stringify({msg:{move: msg.movimiento}}))
+            console.log(auxMsg);
+        
+        }catch(e){
 
-    }else pairing[matches].push(ws);
+            console.log(e);
+            console.log(message);
 
+        }
+
+    });
+    
 });
 
 setInterval(() => {
     
     wss.clients.forEach((client) => {
 
-        client.send(ka);
+        client.send(JSON.stringify({msg: ka}));
 
     });
     

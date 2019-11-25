@@ -1,0 +1,161 @@
+{
+
+    "name":[
+
+        "Cortes",
+        "Di Nardo"
+
+    ],
+    "skills":[
+
+        [
+            "Defensa dorada",
+            "Lanza oro",
+            "Batiseñal",
+            "Refugio"
+        ],
+        [
+            "Rizo defensa",
+            "Buena fe",
+            "Mordisco",
+            "Crucifixión"
+        ]
+
+    ],
+    "routes":{
+
+        "aimRight":[
+
+            {
+                "standar":{
+
+                    "sheet": "assets/corti1/spritesheet.json",
+                    "sprites":[
+
+                        "corti1-0.png",
+                        "corti1-1.png",
+                        "corti1-2.png",
+                        "corti1-3.png",
+                        "corti1-4.png",
+                        "corti1-5.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/cortiAtk1/spritesheet.json",
+                    "sprites":[
+
+                        "cortiAtk1-0.png",
+                        "cortiAtk1-1.png",
+                        "cortiAtk1-2.png",
+                        "cortiAtk1-3.png",
+                        "cortiAtk1-4.png",
+                        "cortiAtk1-5.png",
+                        "cortiAtk1-6.png",
+                        "cortiAtk1-7.png",
+                        "cortiAtk1-8.png",
+                        "cortiAtk1-9.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/cortiDmg1/spritesheet.json",
+                    "sprites":[
+
+                        "cortiDmg1-0.png",
+                        "cortiDmg1-1.png",
+                        "cortiDmg1-2.png",
+                        "cortiDmg1-3.png",
+                        "cortiDmg1-4.png",
+                        "cortiDmg1-5.png",
+                        "cortiDmg1-6.png",
+                        "cortiDmg1-7.png",
+                        "cortiDmg1-8.png",
+                        "cortiDmg1-9.png",
+                        "cortiDmg1-10.png",
+                        "cortiDmg1-11.png"
+
+                    ]
+
+                }
+            }
+
+        ],
+        "aimLeft":[
+
+            {
+
+            },
+            {
+                "standar":{
+
+                    "sheet": "assets/diNardo2/spritesheet.json",
+                    "sprites":[
+
+                        "diNardo2-0.png",
+                        "diNardo2-1.png",
+                        "diNardo2-2.png",
+                        "diNardo2-3.png",
+                        "diNardo2-4.png",
+                        "diNardo2-5.png",
+                        "diNardo2-6.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/diNardoAtk2/spritesheet.json",
+                    "sprites":[
+
+                        "diNardoAtk2-0.png",
+                        "diNardoAtk2-1.png",
+                        "diNardoAtk2-2.png",
+                        "diNardoAtk2-3.png",
+                        "diNardoAtk2-4.png",
+                        "diNardoAtk2-5.png",
+                        "diNardoAtk2-6.png",
+                        "diNardoAtk2-7.png",
+                        "diNardoAtk2-8.png",
+                        "diNardoAtk2-9.png",
+                        "diNardoAtk2-10.png",
+                        "diNardoAtk2-11.png",
+                        "diNardoAtk2-12.png",
+                        "diNardoAtk2-13.png",
+                        "diNardoAtk2-14.png",
+                        "diNardoAtk2-15.png",
+                        "diNardoAtk2-16.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/diNardoDmg2/spritesheet.json",
+                    "sprites":[
+
+                        "diNardoDmg2-0.png",
+                        "diNardoDmg2-1.png",
+                        "diNardoDmg2-2.png",
+                        "diNardoDmg2-3.png",
+                        "diNardoDmg2-4.png",
+                        "diNardoDmg2-5.png",
+                        "diNardoDmg2-6.png",
+                        "diNardoDmg2-7.png",
+                        "diNardoDmg2-8.png",
+                        "diNardoDmg2-9.png"
+
+                    ]
+
+                }
+            }
+
+        ]
+
+    }
+
+}
