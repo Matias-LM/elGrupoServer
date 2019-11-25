@@ -78,7 +78,6 @@ wss.on('connection', function connection(ws, req) {
             var msg = JSON.parse(message).msg;
             console.log(msg.jugador);
             pairing[msg.match][msg.jugador].send(JSON.stringify({msg:{move: msg.movimiento}}))
-            console.log(auxMsg);
         
         }catch(e){
 
