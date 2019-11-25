@@ -80,7 +80,8 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', function connection(ws) {
     
-    console.log(ws);
+    console.log((new Date()) + ' Connection from origin '
+        + request.origin + '.');
 
 });
 
@@ -88,7 +89,8 @@ setInterval(() => {
     
     wss.clients.forEach((client) => {
 
-      client.send("keep alive");
+        client.send(client);
+        client.send("keep alive");
 
     });
     
