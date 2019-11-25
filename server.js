@@ -59,33 +59,37 @@ server.listen(port, function() {
 */
 const SocketServer = require('ws').Server;
 var express = require('express');
-var path = require('path');
-//init Express
 var app = express();
-//init Express Router
-var router = express.Router();
 var port = process.env.PORT || 4000;
-var i = 0;
+
+var pairing = [[]];
+var player = 0;
+var matches = 0;
+
 app.get('/', function(req, res) {
     res.json({algo: 'lol'});
 });
 
 var server = app.listen(port, function () {
-    //listening
+
+    console.log((new Date()) + " Server is listening on port "
+    + port);
+
 })
 const wss = new SocketServer({ server });
 
 wss.on('connection', function connection(ws) {
     
-    i++;
-    console.log("connection ...");
-    
+    console.log(ws);
+
 });
 
 setInterval(() => {
     
     wss.clients.forEach((client) => {
-      client.send(i);
+
+      client.send("keep alive");
+
     });
     
-  }, 1000);
+}, 1000);
