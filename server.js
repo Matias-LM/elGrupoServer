@@ -79,9 +79,9 @@ var server = app.listen(port, function () {
 })
 const wss = new SocketServer({ server });
 
-wss.on('connection', function connection(ws) {
+wss.on('connection', function connection(ws, req) {
     
-    var ip = ws._socket.remoteAddress;
+    var ip = req.connection.remoteAddress;
     console.log((new Date()) + ' Connection from '
     + ip + '.');
     if(pairing[0]._socket !== undefined){
