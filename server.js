@@ -65,6 +65,7 @@ var port = process.env.PORT || 4000;
 var pairing = [[]];
 var player = 0;
 var matches = 0;
+var ka = "keep alive";
 
 app.get('/', function(req, res) {
     res.json({algo: 'lol'});
@@ -80,8 +81,21 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', function connection(ws) {
     
-    console.log((new Date()) + ' Connection from origin '
-        + request.origin + '.');
+    var ip = ws._socket.remoteAddress;
+    console.log((new Date()) + ' Connection from '
+    + ip + '.');
+    if(pairing[0]._socket !== undefined){
+
+        if(pairing[0]._socket.remoteAddress != ip){
+
+            pairing[matches].push(ws);
+            matches++;
+            pairing.push([])
+            ws.send("matched");
+
+        } 
+
+    }else pairing[matches].push(ws);
 
 });
 
@@ -89,8 +103,7 @@ setInterval(() => {
     
     wss.clients.forEach((client) => {
 
-        client.send(client);
-        client.send("keep alive");
+        client.send(ka);
 
     });
     
