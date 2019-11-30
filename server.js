@@ -30,16 +30,6 @@ var server = app.listen(port, function () {
 
 })
 
-app.get('/', function(req, res) {
-    res.json({algo: 'lol'});
-});
-
-app.post('/close', function(req, res) {
-
-    console.log("Santi puto");
-
-});
-
 const wss = new SocketServer({ server }); //pairing = [[ws1, ws2], [ws3, ws4]]
 
 wss.on('connection', function connection(ws, req) {
