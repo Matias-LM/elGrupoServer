@@ -114,6 +114,3 @@ setInterval(() => {
     });
     
 }, 1000);
-
-redis.on ("error", (err) =>
-   console.log("Redis error: #{err}"))
