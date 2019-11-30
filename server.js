@@ -1,4 +1,5 @@
 
+var mutex = require( 'node-mutex' )();
 const pjs = require('./battle.json');
 const SocketServer = require('ws').Server;
 var express = require('express');
@@ -22,55 +23,69 @@ var aux2 = {
 
 };
 
-app.get('/', function(req, res) {
-    res.json({algo: 'lol'});
-});
-
 var server = app.listen(port, function () {
 
     console.log((new Date()) + " Server is listening on port "
     + port);
 
 })
-const wss = new SocketServer({ server });
+
+app.get('/', function(req, res) {
+    res.json({algo: 'lol'});
+});
+
+app.post('/close', function(req, res) {
+
+    console.log("Santi puto");
+
+});
+
+const wss = new SocketServer({ server }); //pairing = [[ws1, ws2], [ws3, ws4]]
 
 wss.on('connection', function connection(ws, req) {
     
     console.log("New connection from " + req.connection.remoteAddress);
-    pairing[matches].push(ws);
-    if(player){
+    mutex.lock('key', function(err, unlock){
 
-        ws.send(JSON.stringify(
-            
-            {
-                msg: {
-                    match: matches, 
-                    player: 2, 
-                    miPj: aux2, 
-                    suPj: pjs.routes.aimLeft[1]
-                }
-            
-            }
-            
-        ));
-        pairing[matches][0].send(JSON.stringify(
-            
-            {
-                msg: {
-                    match: matches, 
-                    player: 1, 
-                    miPj: aux1, 
-                    suPj: pjs.routes.aimLeft[1]
-                }
-            
-            }
-            
-        ));
-        player--;
-        matches++;
-        pairing.push([])
+        if (err) console.error( err );
+        pairing[matches].push(ws);
 
-    }else player++;
+        if(player){
+
+            ws.send(JSON.stringify(
+                
+                {
+                    msg: {
+                        match: matches, 
+                        player: 2, 
+                        miPj: aux2, 
+                        suPj: pjs.routes.aimLeft[1]
+                    }
+                
+                }
+                
+            ));
+            pairing[matches][0].send(JSON.stringify(
+                
+                {
+                    msg: {
+                        match: matches, 
+                        player: 1, 
+                        miPj: aux1, 
+                        suPj: pjs.routes.aimLeft[1]
+                    }
+                
+                }
+                
+            ));
+            player--;
+            matches++;
+            pairing.push([])
+
+        }else player++;
+        unlock();
+
+    });
     ws.on('message', function(message){
 
         try{
@@ -87,6 +102,16 @@ wss.on('connection', function connection(ws, req) {
         }
 
     });
+    ws.on('close', function(res){
+
+        /*pairing.map(function(webs){
+
+            if(webs.contains(ws))
+
+        })*/
+        console.log("Connection close");
+
+    })
     
 });
 
