@@ -1,5 +1,5 @@
 
-var mutex = require( 'node-mutex' )();
+//var mutex = require( 'node-mutex' )();
 const pjs = require('./battle.json');
 const SocketServer = require('ws').Server;
 var express = require('express');
@@ -35,9 +35,9 @@ const wss = new SocketServer({ server }); //pairing = [[ws1, ws2], [ws3, ws4]]
 wss.on('connection', function connection(ws, req) {
     
     console.log("New connection from " + req.connection.remoteAddress);
-    mutex.lock('key', function(err, unlock){
+    /*mutex.lock('key', function(err, unlock){
 
-        if (err) console.error( err );
+        if (err) console.error( err );*/
         pairing[matches].push(ws);
 
         if(player){
@@ -73,9 +73,9 @@ wss.on('connection', function connection(ws, req) {
             pairing.push([])
 
         }else player++;
-        unlock();
+       /* unlock();
 
-    });
+    });*/
     ws.on('message', function(message){
 
         try{
