@@ -12,12 +12,14 @@ var matches = 0;
 var ka = "keep alive";
 var aux1 = {
 
+    id: 0,
     skills: pjs.skills[0],
     routes: pjs.routes.aimRight[0]
 
 };
 var aux2 = {
 
+    id: 1,
     skills: pjs.skills[1],
     routes: pjs.routes.aimRight[0]
 
@@ -38,24 +40,24 @@ wss.on('connection', function connection(ws, req) {
     /*mutex.lock('key', function(err, unlock){
 
         if (err) console.error( err );*/
-        pairing[matches].push(ws);
+        /*pairing[matches].push(ws);
 
-        if(player){
+        if(player){*/
 
             ws.send(JSON.stringify(
                 
                 {
                     msg: {
-                        match: matches, 
-                        player: 2, 
-                        miPj: aux2, 
-                        suPj: pjs.routes.aimLeft[1]
+                        match: matches, //ID de la sesion
+                        player: 2, //ID del pj seleccionado
+                        miPj: aux2, //Datos del personaje del usuario
+                        suPj: pjs.routes.aimLeft[1] //Sprite del personaje del contrincante
                     }
                 
                 }
                 
             ));
-            pairing[matches][0].send(JSON.stringify(
+            /*pairing[matches][0].send(JSON.stringify(
                 
                 {
                     msg: {
@@ -70,9 +72,9 @@ wss.on('connection', function connection(ws, req) {
             ));
             player--;
             matches++;
-            pairing.push([])
+            pairing.push([])*/
 
-        }else player++;
+        //}else player++;
        /* unlock();
 
     });*/

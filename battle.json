@@ -3,7 +3,18 @@
     "name":[
 
         "Cortes",
-        "Di Nardo"
+        "Di Nardo",
+        "Fernández Ares",
+        "González Pérez",
+        "Lopez Monteiro",
+        "Montiel",
+        "Mora",
+        "Piñeyro",
+        "Percunte",
+        "Salgado",
+        "Yoel",
+        "Bulacio",
+        "Fernández Santarrosa"
 
     ],
     "skills":[
@@ -19,6 +30,72 @@
             "Buena fe",
             "Mordisco",
             "Crucifixión"
+        ],
+        [
+            "Rodar",
+            "Comer",
+            "Reacción",
+            "Risa chillona"
+        ],
+        [
+            "Aderezos",
+            "Pedofilia",
+            "Rodillera de bronce",
+            "Rayo cariñoso"
+        ],
+        [
+            "Hidrocañón",
+            "Hibernación",
+            "Programación",
+            "Lolicon"
+        ],
+        [
+            "Critica",
+            "Reflejo",
+            "Master Race",
+            "Desnivel"
+        ],
+        [
+            "Charla filosofica",
+            "Debate",
+            "Violacion",
+            "Ataque girasol"
+        ],
+        [
+            "PECEEE!!!",
+            "Vuelta Olimpica",
+            "3D Pawa",
+            "No U"
+        ],
+        [
+            "BNP",
+            "Depresión",
+            "Golpe",
+            "Series loquendo"
+        ],
+        [
+            "Allahu Akbar",
+            "Contactos chinos",
+            "Desaparición",
+            "Emperador"
+        ],
+        [
+            "Vomito",
+            "Golpe contundente",
+            "Llamada",
+            "Desesperación"
+        ],
+        [
+            "Arquería",
+            "Defensa textil",
+            "Concentración",
+            "Hoja oculta"
+        ],
+        [
+            "Truco",
+            "Lanzamiento",
+            "Regate",
+            "Beta Tester"
         ]
 
     ],
@@ -26,6 +103,58 @@
 
         "aimRight":[
 
+            {
+                "standar":{
+
+                    "sheet": "assets/bulacio1/spritesheet.json",
+                    "sprites":[
+
+                        "bulacio1-0.png",
+                        "bulacio1-1.png",
+                        "bulacio1-2.png",
+                        "bulacio1-3.png",
+                        "bulacio1-4.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/bulacioAtk1/spritesheet.json",
+                    "sprites":[
+
+                        "bulacioAtk1-0.png",
+                        "bulacioAtk1-1.png",
+                        "bulacioAtk1-2.png",
+                        "bulacioAtk1-3.png",
+                        "bulacioAtk1-4.png",
+                        "bulacioAtk1-5.png",
+                        "bulacioAtk1-6.png",
+                        "bulacioAtk1-7.png",
+                        "bulacioAtk1-8.png",
+                        "bulacioAtk1-9.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/bulacioDmg1/spritesheet.json",
+                    "sprites":[
+
+                        "bulacioDmg1-0.png",
+                        "bulacioDmg1-1.png",
+                        "bulacioDmg1-2.png",
+                        "bulacioDmg1-3.png",
+                        "bulacioDmg1-4.png",
+                        "bulacioDmg1-5.png",
+                        "bulacioDmg1-6.png",
+                        "bulacioDmg1-7.png"
+
+                    ]
+
+                }
+            },
             {
                 "standar":{
 
@@ -82,13 +211,242 @@
                     ]
 
                 }
+            },
+            {
+                "standar":{
+
+                    "sheet": "assets/diNardo1/spritesheet.json",
+                    "sprites":[
+
+                        "diNardo1-0.png",
+                        "diNardo1-1.png",
+                        "diNardo1-2.png",
+                        "diNardo1-3.png",
+                        "diNardo1-4.png",
+                        "diNardo1-5.png",
+                        "diNardo1-6.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/diNardoAtk1/spritesheet.json",
+                    "sprites":[
+
+                        "diNardoAtk1-0.png",
+                        "diNardoAtk1-1.png",
+                        "diNardoAtk1-2.png",
+                        "diNardoAtk1-3.png",
+                        "diNardoAtk1-4.png",
+                        "diNardoAtk1-5.png",
+                        "diNardoAtk1-6.png",
+                        "diNardoAtk1-7.png",
+                        "diNardoAtk1-8.png",
+                        "diNardoAtk1-9.png",
+                        "diNardoAtk1-10.png",
+                        "diNardoAtk1-11.png",
+                        "diNardoAtk1-12.png",
+                        "diNardoAtk1-13.png",
+                        "diNardoAtk1-14.png",
+                        "diNardoAtk1-15.png",
+                        "diNardoAtk1-16.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/diNardoDmg1/spritesheet.json",
+                    "sprites":[
+
+                        "diNardoDmg1-0.png",
+                        "diNardoDmg1-1.png",
+                        "diNardoDmg1-2.png",
+                        "diNardoDmg1-3.png",
+                        "diNardoDmg1-4.png",
+                        "diNardoDmg1-5.png",
+                        "diNardoDmg1-6.png",
+                        "diNardoDmg1-7.png",
+                        "diNardoDmg1-8.png",
+                        "diNardoDmg1-9.png"
+
+                    ]
+
+                }
+            },
+            {
+                "standar":{
+
+                    "sheet": "assets/gena1/spritesheet.json",
+                    "sprites":[
+
+                        "gena1-0.png",
+                        "gena1-1.png",
+                        "gena1-2.png",
+                        "gena1-3.png",
+                        "gena1-4.png",
+                        "gena1-5.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/genaAtk1/spritesheet.json",
+                    "sprites":[
+
+                        "genaAtk1-0.png",
+                        "genaAtk1-1.png",
+                        "genaAtk1-2.png",
+                        "genaAtk1-3.png",
+                        "genaAtk1-4.png",
+                        "genaAtk1-5.png",
+                        "genaAtk1-6.png",
+                        "genaAtk1-7.png",
+                        "genaAtk1-8.png",
+                        "genaAtk1-9.png",
+                        "genaAtk1-10.png",
+                        "genaAtk1-11.png",
+                        "genaAtk1-12.png",
+                        "genaAtk1-13.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/genaDmg1/spritesheet.json",
+                    "sprites":[
+
+                        "genaDmg1-0.png",
+                        "genaDmg1-1.png",
+                        "genaDmg1-2.png",
+                        "genaDmg1-3.png",
+                        "genaDmg1-4.png",
+                        "genaDmg1-5.png",
+                        "genaDmg1-6.png",
+                        "genaDmg1-7.png",
+                        "genaDmg1-8.png",
+                        "genaDmg1-9.png",
+                        "genaDmg1-10.png"
+
+                    ]
+
+                }
             }
 
         ],
         "aimLeft":[
 
             {
+                "standar":{
 
+                    "sheet": "assets/bulacio2/spritesheet.json",
+                    "sprites":[
+
+                        "bulacio2-0.png",
+                        "bulacio2-1.png",
+                        "bulacio2-2.png",
+                        "bulacio2-3.png",
+                        "bulacio2-4.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/bulacioAtk2/spritesheet.json",
+                    "sprites":[
+
+                        "bulacioAtk2-0.png",
+                        "bulacioAtk2-1.png",
+                        "bulacioAtk2-2.png",
+                        "bulacioAtk2-3.png",
+                        "bulacioAtk2-4.png",
+                        "bulacioAtk2-5.png",
+                        "bulacioAtk2-6.png",
+                        "bulacioAtk2-7.png",
+                        "bulacioAtk2-8.png",
+                        "bulacioAtk2-9.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/bulaciomg2/spritesheet.json",
+                    "sprites":[
+
+                        "bulaciomg2-0.png",
+                        "bulaciomg2-1.png",
+                        "bulaciomg2-2.png",
+                        "bulaciomg2-3.png",
+                        "bulaciomg2-4.png",
+                        "bulaciomg2-5.png",
+                        "bulaciomg2-6.png",
+                        "bulaciomg2-7.png"
+
+                    ]
+
+                }
+            },
+            {
+                "standar":{
+
+                    "sheet": "assets/corti2/spritesheet.json",
+                    "sprites":[
+
+                        "corti2-0.png",
+                        "corti2-1.png",
+                        "corti2-2.png",
+                        "corti2-3.png",
+                        "corti2-4.png",
+                        "corti2-5.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/cortiAtk2/spritesheet.json",
+                    "sprites":[
+
+                        "cortiAtk2-0.png",
+                        "cortiAtk2-1.png",
+                        "cortiAtk2-2.png",
+                        "cortiAtk2-3.png",
+                        "cortiAtk2-4.png",
+                        "cortiAtk2-5.png",
+                        "cortiAtk2-6.png",
+                        "cortiAtk2-7.png",
+                        "cortiAtk2-8.png",
+                        "cortiAtk2-9.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/cortiDmg2/spritesheet.json",
+                    "sprites":[
+
+                        "cortiDmg2-0.png",
+                        "cortiDmg2-1.png",
+                        "cortiDmg2-2.png",
+                        "cortiDmg2-3.png",
+                        "cortiDmg2-4.png",
+                        "cortiDmg2-5.png",
+                        "cortiDmg2-6.png",
+                        "cortiDmg2-7.png",
+                        "cortiDmg2-8.png",
+                        "cortiDmg2-9.png",
+                        "cortiDmg2-10.png",
+                        "cortiDmg2-  1.png"
+
+                    ]
+
+                }
             },
             {
                 "standar":{
@@ -149,6 +507,66 @@
                         "diNardoDmg2-8.png",
                         "diNardoDmg2-9.png"
 
+                    ]
+
+                }
+            },
+            {
+                "standar":{
+
+                    "sheet": "assets/gena2/spritesheet.json",
+                    "sprites":[
+
+                        "gena2-0.png",
+                        "gena2-1.png",
+                        "gena2-2.png",
+                        "gena2-3.png",
+                        "gena2-4.png",
+                        "gena2-5.png"
+
+                    ]
+
+                },
+                "atack":{
+
+                    "sheet": "assets/genaAtk2/spritesheet.json",
+                    "sprites":[
+
+                        "genaAtk2-0.png",
+                        "genaAtk2-2.png",
+                        "genaAtk2-2.png",
+                        "genaAtk2-3.png",
+                        "genaAtk2-4.png",
+                        "genaAtk2-5.png",
+                        "genaAtk2-6.png",
+                        "genaAtk2-7.png",
+                        "genaAtk2-8.png",
+                        "genaAtk2-9.png",
+                        "genaAtk2-10.png",
+                        "genaAtk2-11.png",
+                        "genaAtk2-12.png",
+                        "genaAtk2-13.png"
+
+                    ]
+
+                },
+                "damage":{
+
+                    "sheet": "assets/genaDmg2/spritesheet.json",
+                    "sprites":[
+
+                        "genaDmg2-0.png",
+                        "genaDmg2-1.png",
+                        "genaDmg2-2.png",
+                        "genaDmg2-3.png",
+                        "genaDmg2-4.png",
+                        "genaDmg2-5.png",
+                        "genaDmg2-6.png",
+                        "genaDmg2-7.png",
+                        "genaDmg2-8.png",
+                        "genaDmg2-9.png",
+                        "genaDmg2-10.png"
+                        
                     ]
 
                 }
